@@ -7,7 +7,7 @@ import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.select
 
-class UserRepo {
+class Repo {
 
     suspend fun addUser(email:String,name:String,passwordHash:String){
         dbQuery{
@@ -17,12 +17,6 @@ class UserRepo {
                 user[UserTable.passwordHash] = passwordHash
             }
         }
-    }
-
-    suspend fun getUserById(userId:Int) = dbQuery {
-        UserTable.select{ UserTable.userId.eq(userId) }
-            .map{ rowToUser(it) }
-            .singleOrNull()
     }
 
     suspend fun getUserByEmail(email:String) = dbQuery {
@@ -39,7 +33,6 @@ class UserRepo {
         }
 
         return User(
-            userId = row[UserTable.userId],
             email = row[UserTable.email],
             name = row[UserTable.name],
             passwordHash =  row[UserTable.passwordHash]
