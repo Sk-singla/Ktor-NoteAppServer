@@ -14,7 +14,7 @@ class Repo {
             UserTable.insert { user->
                 user[UserTable.email] = email
                 user[UserTable.name] = name
-                user[UserTable.passwordHash] = passwordHash
+                user[UserTable.passwordHash]  = passwordHash
             }
         }
     }
