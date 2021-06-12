@@ -48,7 +48,7 @@ fun Application.module(testing: Boolean = false) {
 
         get("/note/{id}") {
             val id = call.parameters["id"]
-            call.respond("${id}")
+            call.respond("$id")
         }
 
         get("/token"){
