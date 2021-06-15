@@ -37,18 +37,6 @@ fun Application.module(testing: Boolean = false) {
 
     install(Authentication) {
 
-        jwt("jwt") {
-
-            verifier(jwtService.varifier)
-            realm = "NoteServer"
-            validate {
-                val payload = it.payload
-                val email = payload.getClaim("email").asString()
-                val user = db.findUserByEmail(email)
-                user
-            }
-
-        }
 
     }
 
