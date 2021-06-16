@@ -5,7 +5,7 @@ import com.example.data.model.LoginRequest
 import com.example.data.model.RegisterRequest
 import com.example.data.model.SimpleResponse
 import com.example.data.model.User
-import com.example.repository.repo
+import com.example.repository.Repo
 import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.locations.*
@@ -28,7 +28,7 @@ class UserLoginRoute
 
 
 fun Route.UserRoutes(
-    db:repo,
+    db:Repo,
     jwtService: JwtService,
     hashFunction: (String)->String
 ){
