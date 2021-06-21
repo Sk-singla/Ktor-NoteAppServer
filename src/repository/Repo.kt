@@ -85,9 +85,9 @@ class Repo {
 
     }
 
-    suspend fun deleteNote(id:String){
+    suspend fun deleteNote(id:String,email: String){
         dbQuery {
-            NoteTable.deleteWhere { NoteTable.id.eq(id) }
+            NoteTable.deleteWhere { NoteTable.userEmail.eq(email) and NoteTable.id.eq(id) }
         }
     }
 
